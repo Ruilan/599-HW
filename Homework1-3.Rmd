@@ -1,0 +1,81 @@
+---
+title: "Homework1-3"
+author: "Ruilan Liu"
+date: "10/02/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Q1}
+riseToPowerplus=function(base,exponent){
+  result=1
+  if (exponent>0){
+    for(time in 1:exponent){
+      result=result*base
+    }
+  }
+  if (exponent==0){
+    ressult=1
+  }
+  if (exponent<0){
+    for (time in exponent:-1){
+      result=result*(1/base)
+    }
+  }
+  return(result)
+}
+riseToPowerplus(2,0)
+riseToPowerplus(2,2)
+riseToPowerplus(2,-1)
+```
+```{r Q2}
+factorsplus=function(number){
+  vectorOfAnswers=c() 
+  for (i in 1:number){
+    if(number<=0){
+      return ("invalid number")}
+    if ((number %% i) == 0){ 
+      vectorOfAnswers=c(vectorOfAnswers,i)
+    }
+  }
+  return (vectorOfAnswers)
+}
+factorsplus(0)
+factorsplus(-20)
+factorsplus(20)
+```
+
+```{r Q3}
+factorsint=function(number){
+  vectorOfAnswers=c() 
+  for (i in 1:number){
+    if(as.integer(number)!=as.numeric(number)){
+      return("invalid input")
+    }
+    if(number<=0){
+      return ("invalid number")}
+    if ((number %% i) == 0){ 
+      vectorOfAnswers=c(vectorOfAnswers,i)
+    }
+  }
+  return (vectorOfAnswers)
+}
+factorsint(0)
+factorsint(-20)
+factorsint(20)
+factorsint(20.5)
+```
+```{r Q4}
+powerDF=function(aVector,bVector){
+  answerAsDF=data.frame(number1=aVector,number2=bVector,number3=aVector+bVector,number4=aVector*bVector,number5=aVector/bVector,number6=aVector-bVector)
+  answerAsDF
+}
+powerDF(aVector = factorsint(10), bVector = factorsint(10))
+```
+
+
+
+
